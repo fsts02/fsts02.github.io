@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://wypozyczalnia.windsurfing.com.pl/grafik/?s=windsurfing&d=2024-07-10 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+	<title>Grafik FunSurf.pl</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" />
+	<!-- <link rel="stylesheet" href="./Grafik_FunSurf.pl_files/normalize.min.css" > -->
+	<!-- <link href="./Grafik_FunSurf.pl_files/css2" rel="stylesheet"> -->
+	<!-- <link rel="stylesheet" href="./Grafik_FunSurf.pl_files/bootstrap-datepicker.standalone.min.css" > -->
+	<link rel="icon" type="image/png" sizes="32x32" href="https://wypozyczalnia.windsurfing.com.pl/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://wypozyczalnia.windsurfing.com.pl/favicon-16x16.png">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pl.min.js" ></script>
+	<script src="https://wypozyczalnia.windsurfing.com.pl/grafik/freeze-table.min.js"></script>
+
+	<!--	<script src="./Grafik_FunSurf.pl_files/moment.min.js.pobrane" ></script> -->
+	<!--	<script src="./Grafik_FunSurf.pl_files/jquery.min.js.pobrane" ></script> -->
+	<!--	<script src="./Grafik_FunSurf.pl_files/bootstrap-datepicker.min.js.pobrane" ></script> -->
+	<!--	<script src="./Grafik_FunSurf.pl_files/bootstrap-datepicker.pl.min.js.pobrane" ></script> -->
+<!--	<script src="./Grafik_FunSurf.pl_files/freeze-table.min.js.pobrane"></script>  -->
+	<script>
+	   $(function() {
+	      $('.scheduleWrapper').freezeTable({
+	      	columnNum: 2
+	      });
+	   });
+	</script>
+
+	<script>
+		var config = {
+			'endpointBase': 'https://polarisfs.azurewebsites.net/api/integration/schedule/',
+			'key': 'F@nSurf!18',
+			'startHour': 9,
+			'endHour': 21
+		}
+	</script>
+</head>
+<body>
+	<header class="mainHeader">
+		<div class="siteLogo">
+			<svg id="funsurfLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 631.3 140">
+			    <path d="M423.2 100.5l-33.6.7v16.5h31.6c13.6 0 29.5-10.4 29.5-23.3v-6.9c0-9.7-9.7-16.8-17.3-19.1-6.5-2-26-2.8-26-9.7v-1.4c0-4.5 4.9-7.6 9.6-7.6h39.1v39.8c0 15.5 15.7 28.2 32.3 28.2h3.4c15 0 29.5-13 29.5-28.2V49.7h15.1c4.6 0 11 2.3 11 6.2v4.8c0 4.5-4.9 7.6-9.6 7.6h-11c1.4 6.1 8.6 21.7 11.5 28.4 1.6 3.7 10.1 26.6 12.6 26.6h19.2c-1.8-7.8-17.9-36.7-17.9-41.2 0-1.3 18.9-7.6 14-29.8-2.2-11-13.3-19.1-26.2-19.1h-37.1v56.3c0 6.3-6.8 11-13.7 11h-2.1c-6 0-12.4-7.2-12.4-13.7V33.2H415c-13.8 0-26.1 11.1-26.1 24.7v2.7c0 27.9 42.6 17.5 42.6 30.9V93c0 4.1-4.3 7.2-8.3 7.5M226.9 117V79.9h33V71h-32.3l-.7-28.2 41.9.7c2.3 3.6.1 41.3.7 49.5.8 12.1 12.6 24.7 25.4 24.7h6.9c14 0 22.4-9.6 25.7-21 2.7-9.5 1.1-33 1.1-44.9l42.1 65.8 10.7.2V33.2h-11v65.9L329 34l-10.8-.1v53.6c0 10.5-6.5 19.9-17.2 19.9h-6.2c-7.6 0-15.1-10.7-15.1-19.2v-55h-63.2V117h10.4m345.4 0l18.5.7V84h34.3V67.6h-34.3V50.4h40.5V33.9h-59V117"></path>
+			    <path d="M0 66.2v5.1C0 82.4 3.7 91 6.7 99c1.9 4.9 10.6 17.8 14.4 20.3l29.2-7.6c-.1-.1-2.1-1.4-4.5-3-4.8-3.2-8.5-6.3-12.2-10.8-1.5-1.8-2.7-3.6-3-4.8l21.2-5.5-6.1-23.2L23.6 70v-2.4c0-6.5 2.3-14.4 4.4-18.9 1.2-2.6 2.7-5.2 4.2-7.4 1.6-2.3 4.2-4.6 5.5-6.5l-6.6-25c-2 .5-10.3 8-11.8 9.8-3.6 4.2-6.5 7.6-9.4 12.6C5.1 40.5 0 53.3 0 66.2M41.7 3.3l21.4 80.8 55.8-14.7v3c0 9.3-6 19.9-10.1 25.4-11.2 15.1-30.9 19.1-48.2 22.8-4.3.9-9.5 2.7-13.8 3.8-3.3.8-11.3 3.5-14.3 3.6v.5c.9.3 6.2 3.4 7.8 4.2 2.7 1.4 5.5 2.5 8.5 3.5 5 1.7 13.8 3.8 20.3 3.8h1.4c39.8 0 72.3-31.5 72.3-70.9 0-5.9-.7-10.9-1.7-15.9-.9-4.8-3.3-9.3-4.3-13.3L80 54.8l-9-34.1h1.9c6.8 0 14.6 2.5 19.3 4.8 2.6 1.3 5.1 2.9 7.4 4.5.9.7 6.3 5.6 6.6 5.6 2.9 0 19.6-5.1 23.6-6.2 1.8-.5-23.5-41.1-88.1-26.1z" fill="#f47921"></path>
+			</svg>
+		</div>
+		<div class="sportToggler">
+			<span onclick="changeSportType(1)" data-sport="windsurfing" class="sportType">windsurfing</span>
+			<span onclick="changeSportType(2)" data-sport="kitesurfing" class="sportType active">kitesurfing</span>
+			<span onclick="changeSportType(3)" data-sport="wingfoil" class="sportType">wingfoil</span>
+		</div>
+		<div class="datePicker">
+			<input id="datePicker" type="text">
+		</div>
+	</header>
+	<div class="wrapper">
+		<div id="scheduleWrapper" class="scheduleWrapper" style="height: 100%; min-height: 100%; max-height: 100%; overflow-x: scroll;">
+			<table id="schedule" class="schedule">
+				<thead>
+					<tr>
+						<th>Instruktor</th>
+						<th>Lekcje</th>
+                    </tr>
+				</thead>
+				
+			<tbody>
+
+            </tbody>
+        </table>
+		<div class="clone-head-table-wrap" style="position: fixed; overflow: hidden; visibility: hidden; top: 0px; z-index: 2; width: 622px; height: 40px;"><table class="schedule" style="background-color: white;">
+				<thead>
+					<tr>
+						<th>Instruktor</th>
+						<th>Lekcje</th>
+                    </tr>
+				</thead>
+				
+			<tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="clone-column-table-wrap" style="position: fixed; overflow: hidden; visibility: hidden; z-index: 1; width: 112.844px; top: 95.0633px;"><table class="schedule" style="background-color: white; width: 1965.01px;">
+				<thead>
+					<tr>
+						<th>Instruktor</th>
+						<th>Lekcje</th>
+                    </tr>
+				</thead>
+				
+			<tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="clone-head-table-wrap clone-column-head-table-wrap" style="position: fixed; overflow: hidden; visibility: hidden; top: 0px; z-index: 3; background-color: white; width: 112.833px; height: 40px;"><table class="schedule" style="background-color: white; width: 1965.01px;">
+				<thead>
+					<tr>
+						<th>Instruktor</th>
+						<th>Lekcje</th>
+                    </tr>
+				</thead>
+				
+			<tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+	</div>
+
+	<script>
+		var scheduleEl = document.getElementById('schedule');
+		var date, params, isWindsurfing, cols, rows, hours, sportType;
+		var trainers = {};
+		hours = [];
+
+		cols = (config.endHour - config.startHour) * 4;
+
+		params = new URLSearchParams(window.location.search);
+		date = (params.has('d')) ? moment(params.get('d')) : moment();
+
+		if(date.isBefore(moment().subtract(90, 'day').format('YYYY-MM-DD')) || date.isAfter(moment().add(90, 'days'))) {
+			date = moment();
+		}
+
+		params.set('d',date.format('YYYY-MM-DD'));
+		if(!params.has('s')) {
+			params.set('s', 'windsurfing');	
+		}
+		
+		window.history.replaceState({}, '', `${location.pathname}?${params}`);
+
+		isWindsurfing = (params.has('s') && params.get('s') !== 'windsurfing') ? false : true;
+
+		sportType = 1;
+		if(params.has('s')) {
+			switch(params.get('s')) {
+				case 'windsurfing':
+					sportType = 1;
+					break;
+				case 'kitesurfing':
+					sportType = 2;
+					break;
+				case 'wingfoil':
+					sportType = 3;
+					break;
+				default:
+					sportType = 1;
+			}
+		}
+
+		let els = document.getElementsByClassName('sportType');
+		Array.from(els).forEach((el) => el.classList.remove('active'));
+		let activeEl = document.querySelector('[data-sport="' + params.get('s') + '"]');
+		activeEl.classList.add('active');
+
+
+
+		moment.locale('pl');
+		for(let hour = config.startHour; hour < config.endHour; hour++) {
+			for(let minute = 0; minute < 60; minute += 15) {
+				hours.push(moment({
+					hour: hour,
+					minute: minute
+				}).format('HH:mm'))
+			}
+		}
+
+		let dateInput = document.getElementById('datePicker');
+		dateInput.value = date.format('YYYY-MM-DD');
+
+		drawScheduleHeader();
+		getSchedule(date.format('YYYY-MM-DD'));
+
+		$(document).ready(function(){
+			var datePicker = $('#datePicker').datepicker({
+				format: 'yyyy-mm-dd',
+				language: 'pl',
+				todayBtn: 'linked',
+				startDate: moment().subtract(90, 'day').format('YYYY-MM-DD'),
+				endDate: '+3m'
+			});
+
+			datePicker.on('changeDate', function(e){
+				date = moment(e.date);
+				if(date.isBefore(moment().subtract(90, 'day').format('YYYY-MM-DD')) || date.isAfter(moment().add(3, 'months'))) {
+					date = moment();
+					datePicker.datepicker('update', date.format('YYYY-MM-DD'));
+				}
+				params.set('d',date.format('YYYY-MM-DD'));
+				window.history.replaceState({}, '', `${location.pathname}?${params}`);
+				reloadSchedule();
+			});
+		});
+
+		function drawScheduleHeader() {
+			let sHeaderEl = scheduleEl.rows[0];
+			for(let i = 0; i < hours.length; i++) {
+				let sHeaderTh = document.createElement('th');
+				sHeaderTh.innerHTML = hours[i];
+				sHeaderEl.appendChild(sHeaderTh);
+			}
+		}
+
+		function getSchedule(date) {
+			let endpoint = config.endpointBase + date + '/' + sportType + '/' + config.key;
+			let sportTypes = [1,2,3];
+			let schedule;
+			let trainers = [];
+
+			fetch(endpoint)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(json) {
+				json.forEach((element, index) => {
+					element.sportType = sportType;
+					if(!trainers.includes(element.TrainerId)) {
+						trainers.push(element.TrainerId);
+					}
+				});
+				schedule = json;
+
+				sportTypes.splice(sportTypes.indexOf(sportType), 1);
+				return fetch(config.endpointBase + date + '/' + sportTypes[0] + '/' + config.key);
+			})
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(json) {
+				json.forEach(element => {
+					element.sportType = sportTypes[0];
+					if(trainers.includes(element.TrainerId)) {
+						schedule.push(element);
+					}
+
+				});
+				return fetch(config.endpointBase + date + '/' + sportTypes[1] + '/' + config.key);
+			})
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(json) {
+				json.forEach(element => {
+					element.sportType = sportTypes[1];
+					if(trainers.includes(element.TrainerId)) {
+						schedule.push(element);
+					}
+				});
+
+				return parseSchedule(schedule);
+			})
+			.catch(function(error) {
+				console.log('fetch error: ' + error.message);
+			});
+		}
+
+		function parseSchedule(schedule) {
+			for(let i = 0; i < schedule.length; i++) {
+				let row = schedule[i];
+
+				let nick = row.TrainerNick.trim();
+				//let nick = (sportType == 1) ? (row.TrainerNick.slice(0, -3).trim()) : row.TrainerNick.trim();
+				if(nick.length == 0) {
+					nick = '!ID ' + row.TrainerId;
+				}
+				if(nick.length == 0) continue;
+				if(trainers[nick] == null) {
+					trainers[nick] = {
+						'id': row.TrainerId,
+						'courses': {},
+						'lessons': 0
+					}
+				}
+
+				let course = {
+					'customerName': row.CustomerName,
+					'bandDscr': row.BandDscr,
+					'lessonDscr': row.LessonDscr,
+					'lessonNote': row.LessonNote,
+					'lessonType': row.LessonType,
+					'hour' : row.Hour,
+					'minutes': row.Minutes,
+					'duration': row.Duration,
+					'sportType': row.sportType
+				}
+
+				let courseStart = moment({
+					hour: row.Hour,
+					minute: row.Minutes
+				});
+
+				course.startHour = courseStart.format('HH:mm');
+				course.endHour = courseStart.add(schedule[i].Duration, 'minutes').format('HH:mm');
+
+				// if(row.LessonDscr != 'NiedostÄpny Wolne') {
+				// 	trainers[nick].lessons += row.Duration;
+				// }
+
+				let isbusy = 'NiedostÄTpny Wolne'.localeCompare(row.LessonDscr, undefined, { sensitivity: 'base' });
+				if(isbusy == 1) {
+					trainers[nick].lessons += row.Duration;
+				}
+
+				trainers[nick].courses[course.startHour] = course;
+			}
+			//trainers.sort(dynamicSort('nick'));
+
+			drawSchedule();
+		}
+
+		function drawSchedule() {
+			let scheduleBodyEl = scheduleEl.tBodies[0];
+
+			let keys = Object.keys(trainers).sort();
+
+			for (let i = 0; i < keys.length; i++) {
+
+				let scheduleBodyRow = document.createElement('tr');
+				let courses = trainers[keys[i]].courses;
+				let coursesCount = Object.keys(courses).length;
+				let lessons = trainers[keys[i]].lessons / 60;
+				lessons = moment.utc().startOf('day').add({ minutes: trainers[keys[i]].lessons }).format('H:mm');
+
+				scheduleBodyRow.innerHTML = '<th>' + keys[i] + '</th><td>' + lessons + '</td>';
+
+				let tdToSkip = 0;
+				for(let j = 0; j < hours.length; j++) {
+					if(tdToSkip > 0) {
+						tdToSkip--;
+						continue;
+					}
+					let scheduleBodyRowCell = document.createElement('td');
+					scheduleBodyRowCell.dataset.hour = hours[j];
+
+					if(courses.hasOwnProperty(hours[j])) {
+						let course = courses[hours[j]];
+						let courseLength = course.duration / 15;
+						scheduleBodyRowCell.colSpan = courseLength;
+						scheduleBodyRowCell.classList.add('is_course');
+						scheduleBodyRowCell.dataset.sportType = course.sportType;
+						if(course.customerName == null) {
+							scheduleBodyRowCell.classList.add('is_off');
+						}
+						scheduleBodyRowCell.innerHTML = course.lessonDscr + ' ' + course.lessonNote;
+						tdToSkip = courseLength - 1;
+					} else {
+						tdToSkip = 0;
+					}
+					scheduleBodyRow.appendChild(scheduleBodyRowCell);
+				}
+
+				scheduleBodyEl.appendChild(scheduleBodyRow);
+			}
+			$('.scheduleWrapper').freezeTable('update');
+		}
+
+		function dynamicSort(property) {
+		    var sortOrder = 1;
+		    if(property[0] === "-") {
+		        sortOrder = -1;
+		        property = property.substr(1);
+		    }
+		    return function (a,b) {
+		        /* next line works with strings and numbers, 
+		         * and you may want to customize it to your needs
+		         */
+		        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+		        return result * sortOrder;
+		    }
+		}
+
+		function clearSchedule() {
+			let scheduleBodyEl = scheduleEl.tBodies[0];
+			scheduleBodyEl.remove();
+			scheduleEl.appendChild(document.createElement('tbody'));
+			trainers = {};
+		}
+
+		function reloadSchedule() {
+			clearSchedule();
+			//alert(date.format('YYYY-MM-DD'));
+			getSchedule(date.format('YYYY-MM-DD'));
+		}
+
+		function changeSportType(type) {
+			let els = document.getElementsByClassName('sportType');
+			Array.from(els).forEach((el) => el.classList.remove('active'));
+
+			params.set('s',(type == 1) ? 'windsurfing' : ((type == 2) ? 'kitesurfing' : 'wingfoil'));
+			window.history.replaceState({}, '', `${location.pathname}?${params}`);
+
+			let activeEl = document.querySelector('[data-sport="' + params.get('s') + '"]');
+			activeEl.classList.add('active');
+
+			sportType = type;
+			reloadSchedule();
+		}
+	</script>
+	<style>
+		body {
+			background: #f6f6f6;
+			color: #444;
+			font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+		}
+
+		.mainHeader {
+			background: #fff;
+			border-bottom: 1px solid #e6e6e6;
+			padding: 10px 20px 10px 40px;
+			display: flex;
+			align-items: center;
+		}
+
+		.siteLogo {
+			margin-right: 20px;
+			padding-right: 20px;
+			border-right: 1px solid #e6e6e6;
+		}
+
+		.siteLogo svg {
+			height: 30px;
+		}
+
+		.sportToggler {
+			cursor: pointer;
+			font-weight: 500;
+			font-size: 14px;
+		}
+
+		.sportToggler > span:not(:last-child) {
+			margin-right: 10px;
+		}
+
+		.sportToggler > span:not(:last-child):after {
+			color: #444;
+			content: '/';
+			opacity: .4;
+			position: relative;
+			left: 7.5px;
+		}
+
+		.sportToggler .active {
+			color: #00AAFF;
+		}
+
+		.datePicker {
+			margin-left: 20px;
+		}
+
+		.datePicker input {
+			border-radius: 5px;
+			border: 1px solid #e6e6e6;
+			padding: 7px 15px;
+			font-size: 14px;
+			width: 100px;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.wrapper {
+			background-color: #fff;
+			border: 1px solid #e6e6e6;
+			border-radius: 5px;
+			margin: 20px;
+			padding: 20px;
+		}
+
+/*		.scheduleWrapper {
+			padding-left: 140px;
+			position: relative;
+		}*/
+
+		.schedule {
+			border-collapse: collapse;
+			width: 100%;
+			position: relative;
+		}
+
+		.schedule th,
+		.schedule td {
+			background: #fff;
+			border: 1px solid #e6e6e6;
+			box-sizing: border-box;
+			font-size: 11px;
+			height: 40px;
+			width: 40px;
+			padding: 0 5px;
+			text-align: center;
+		}
+
+		.schedule th {
+			font-weight: 500;
+		}
+
+		.schedule tr:nth-child(even) td,
+		.schedule tr:nth-child(even) th {
+			background-color: #F6F6F6;
+		}
+
+		.schedule tbody td.is_course {
+		    color: #fff;
+		}
+
+		.schedule tbody td.is_course[data-sport-type="1"] {
+		    background: #f46604;
+		}
+
+		.schedule tbody td.is_course[data-sport-type="2"] {
+		    background: #38bed6;
+		}
+
+		.schedule tbody td.is_course[data-sport-type="3"] {
+		    background: #53368C;
+		}
+
+		.schedule tbody td.is_off {
+		    background: #242424 !important;
+		}
+	</style>
+
+</body></html>
